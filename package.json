@@ -6,9 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "gray-matter": "^4.0.3",
+    "isomorphic-unfetch": "^3.1.0",
+    "mongoose": "^6.2.2",
     "next": "latest",
+    "next-connect": "^0.12.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.4",
