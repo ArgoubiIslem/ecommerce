@@ -3,8 +3,13 @@ import React from 'react'
 function Media() {
   return (
     <div>
-      <div className="pt-2">
-        <div className="text-black-400 m-auto flex max-w-6xl flex-col border-t border-gray-500 px-3 pb-5 pt-5 text-sm md:flex-row">
+      <div className="flex flex-col items-center justify-center ">
+        <h1 className="font-mono text-3xl font-semibold leading-7 text-gray-800 underline xl:text-4xl xl:leading-9">
+          Rejoignez-Nous!
+        </h1>
+      </div>
+      <div className="flex flex-col items-center justify-center pt-2">
+        <div className=" m-auto flex max-w-6xl flex-col  px-3 pb-5 pt-5 text-sm md:flex-row ">
           <div className="mt-2 flex flex-row md:flex-auto md:flex-row-reverse">
             <div>
               <a

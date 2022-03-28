@@ -4,7 +4,7 @@ import Info from '../components/Info'
 import Media from '../components/Media'
 import Headers from '../components/Headers'
 import Navbar from '../components/Navbar'
-import Fashion from '../components/Fashion'
+
 function ProdHomme() {
   return (
     <div>

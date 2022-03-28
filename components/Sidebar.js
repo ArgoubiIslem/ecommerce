@@ -36,7 +36,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
             </svg>
 
             <span className="mx-2 text-2xl font-semibold text-white">
-              V-Dashboard
+              VETRA
             </span>
           </div>
         </div>

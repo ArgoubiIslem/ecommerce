@@ -6,6 +6,11 @@ function Blogs() {
     <div>
       <div className="flex items-center justify-center">
         <div className="w-96 py-9 px-4 sm:w-auto md:py-12 md:px-6 lg:px-20 lg:py-16 2xl:container 2xl:mx-auto">
+          <div className="flex flex-col items-center justify-center ">
+            <h1 className="font-mono text-3xl font-semibold leading-7 text-gray-800 underline xl:text-4xl xl:leading-9">
+              Nouveaux produits
+            </h1>
+          </div>
           <div
             role="main"
             className="flex flex-col items-center justify-center"
@@ -47,7 +52,11 @@ function Blogs() {
                       </a>
                     </div>
                   </div>
-                  <img src="1.jpg" className="w-full" alt="chair" />
+                  <img
+                    src="1.jpg"
+                    className="w-full max-w-xs transition duration-300 ease-in-out hover:scale-110"
+                    alt="chair"
+                  />
                 </div>
                 <div className="relative mt-4 sm:mt-0 sm:w-1/2">
                   <div>
@@ -80,7 +89,11 @@ function Blogs() {
                       </a>
                     </div>
                   </div>
-                  <img src="28.jpg" className="w-full" alt="wall design" />
+                  <img
+                    src="28.jpg"
+                    className="w-full max-w-xs transition duration-300 ease-in-out hover:scale-110"
+                    alt="wall design"
+                  />
                 </div>
               </div>
               <div className="relative">
@@ -117,7 +130,7 @@ function Blogs() {
                 <img
                   src="9.jpg"
                   alt="sitting place"
-                  className="mt-8 hidden w-full sm:block md:mt-6"
+                  className="mt-8 hidden w-full transition duration-300 ease-in-out hover:scale-110 sm:block md:mt-6"
                 />
                 <img
                   className="mt-4 w-full sm:hidden"
@@ -161,7 +174,7 @@ function Blogs() {
                 <img
                   src="19.jpg"
                   alt="sitting place"
-                  className="hidden w-full sm:block"
+                  className="hidden w-full transition duration-300 ease-in-out hover:scale-110 sm:block"
                 />
                 <img
                   className="w-full sm:hidden"
@@ -201,7 +214,11 @@ function Blogs() {
                       </a>
                     </div>
                   </div>
-                  <img src="11.jpg" className="w-full" alt="chair" />
+                  <img
+                    src="11.jpg"
+                    className="w-full transition duration-300 ease-in-out hover:scale-110"
+                    alt="chair"
+                  />
                 </div>
                 <div className="relative mt-4 w-full sm:mt-0">
                   <div>
@@ -234,7 +251,11 @@ function Blogs() {
                       </a>
                     </div>
                   </div>
-                  <img src="22.jpg" className="w-full" alt="wall design" />
+                  <img
+                    src="22.jpg"
+                    className="w-full transition duration-300 ease-in-out hover:scale-110"
+                    alt="wall design"
+                  />
                 </div>
               </div>
             </div>

@@ -3,14 +3,14 @@ import Link from 'next/link'
 function ShopCategorie() {
   return (
     <div>
+      <div className="flex flex-col items-center justify-center ">
+        <h1 className="font-mono text-3xl font-semibold leading-7 text-gray-800 underline xl:text-4xl xl:leading-9">
+          Consulter par catégorie
+        </h1>
+      </div>
       <div className="flex items-center justify-center">
         <div className="w-full py-12 px-4 sm:px-6 xl:px-20 2xl:container 2xl:mx-auto 2xl:px-0">
           <div className="jusitfy-center flex flex-col items-center space-y-10">
-            <div className="flex flex-col items-center justify-center ">
-              <h1 className="text-3xl font-semibold leading-7 text-gray-800 dark:text-white xl:text-4xl xl:leading-9">
-                Consulter par catégorie
-              </h1>
-            </div>
             <div className="grid w-full grid-cols-1 md:grid-cols-2 md:gap-x-4  lg:grid-cols-3">
               <div className="group relative flex h-full w-full items-center justify-center">
                 <img

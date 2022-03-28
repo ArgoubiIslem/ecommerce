@@ -5,8 +5,11 @@ import Info from '../components/Info'
 import Media from '../components/Media'
 import Headers from '../components/Headers'
 import Blogs from '../components/Blogs'
-import Fashion from '../components/Fashion'
+import Promo from '../components/Promo'
+import NewsLettre from '../components/NewsLettre'
+import MeilleuresVentes from '../components/MeilleuresVentes'
 import ShopCategorie from '../components/ShopCategorie'
+import ChatBox from '../components/ChatBox'
 
 export default function Home() {
   return(
@@ -23,12 +26,14 @@ export default function Home() {
     
     
     <div className="flex justify-center"><ShopCategorie /></div>
-    <div className="flex justify-center"><Fashion /></div>
+    <div className="flex justify-center"><Promo /></div>
+    <div className="flex justify-center"><  MeilleuresVentes /></div>
     <div className="flex justify-center"> <Info /> </div>
-    
+    <div className="flex justify-center"> <NewsLettre /> </div>
    <div className="flex justify-center"> <Media /> </div>
+   <div className="flex justify-center"> <ChatBox /> </div>
     <Footer />
-
+    
     </div>
 
   )
