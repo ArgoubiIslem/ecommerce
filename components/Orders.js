@@ -7,17 +7,37 @@ function Orders() {
         <div className="min-w-screen flex  min-h-screen  justify-center overflow-hidden bg-gray-100 font-sans  ">
           <div className="w-full lg:w-5/6">
             <h3 className="mb-8 text-3xl font-medium text-gray-700">Orders</h3>
-            <div className="relative mx-auto pt-2 text-gray-600">
-              <input
-                className="h-10 rounded-lg border-2 border-gray-300 bg-white px-5 pr-16 text-sm focus:outline-none"
-                type="search"
-                name="search"
-                placeholder="Search"
-              />
+            <div
+              class="mx-auto flex max-w-md items-center rounded-lg bg-white "
+              x-data="{ search: '' }"
+            >
+              <div class="w-full">
+                <input
+                  type="search"
+                  class="w-full rounded-full px-4 py-1 text-gray-800 focus:outline-none"
+                  placeholder="search"
+                  x-model="search"
+                />
+              </div>
               <button
                 type="submit"
-                className="absolute right-0 top-0 mt-5 mr-4"
-              ></button>
+                class="flex h-12 w-12 items-center justify-center rounded-r-lg bg-blue-500 text-white"
+              >
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </button>
             </div>
             <div className="mt-10">
               <div className="my-6 rounded bg-white shadow-md">

@@ -95,7 +95,7 @@ const NewProduct = () => {
 
   return (
     <div className="container mx-auto px-4 py-16 pt-4">
-      <div className="min-w-screen flex  min-h-screen  justify-center overflow-hidden bg-gray-100 font-sans  ">
+      <div className="min-w-screen flex  min-h-screen  justify-center overflow-hidden  font-sans  ">
         <div className="w-full lg:w-5/6">
           <h3 className="mb-8 text-3xl font-medium text-gray-700">
             Créer Produits
@@ -105,7 +105,7 @@ const NewProduct = () => {
               <Loader />
             ) : (
               <form
-                className="m-4 max-w-xl rounded bg-white p-10 shadow-xl"
+                className="m-4  rounded bg-white p-20 shadow-xl"
                 onSubmit={handleSubmit}
               >
                 <div className="">
@@ -199,10 +199,13 @@ const NewProduct = () => {
                   >
                     <option value="">select</option>
                     <option value="1" data-val="1">
-                      option 1
+                      Homme
                     </option>
                     <option value="2" data-val="2">
-                      option 2
+                      Femme
+                    </option>
+                    <option value="2" data-val="2">
+                      Enfant
                     </option>
                   </select>
                 </div>
@@ -239,7 +242,7 @@ const NewProduct = () => {
                 </div>
                 <div className="mt-4">
                   <button
-                    className="focus:shadow-outline rounded bg-teal-400 py-2 px-4 font-bold text-white shadow hover:bg-teal-400 focus:outline-none"
+                    className="focus:shadow-outline rounded bg-blue-500 py-2 px-4 font-bold text-white shadow hover:bg-blue-500 focus:outline-none"
                     type="submit"
                   >
                     Ajouter un produit
