@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Orders from '../components/Orders'
 import Produits from '../components/Produits'
 import Sidebar from '../components/Sidebar'
-import Vendeurs from '../components/Vendeurs'
+import Fournisseurs from '../components/Fournisseurs'
 
 function DashboardLayout() {
   // console.log(dashboard)
@@ -14,7 +14,7 @@ function DashboardLayout() {
   const [showDashboard, setShowDashboard] = useState(false)
   const [showProduits, setShowProduits] = useState(false)
   const [showOrders, setShowOrders] = useState(false)
-  const [showVendeurs, setShowVendeurs] = useState(false)
+  const [showFournisseurs, setShowFournisseurs] = useState(false)
   const [showCategorie, setShowCategorie] = useState(false)
   return (
     <div className="font-roboto flex h-screen bg-gray-200">
@@ -22,7 +22,7 @@ function DashboardLayout() {
         dash={setShowDashboard}
         prod={setShowProduits}
         order={setShowOrders}
-        vend={setShowVendeurs}
+        four={setShowFournisseurs}
         cat={setShowCategorie}
       />
 
@@ -36,7 +36,7 @@ function DashboardLayout() {
           {showDashboard ? <Dashboard /> : null}
           {showProduits ? <Produits /> : null}
           {showOrders ? <Orders /> : null}
-          {showVendeurs ? <Vendeurs /> : null}
+          {showFournisseurs ? <Fournisseurs /> : null}
           {showCategorie ? <Categorie /> : null}
 
           {/* <div className="container mx-auto px-6 py-8">

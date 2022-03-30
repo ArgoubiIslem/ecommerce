@@ -31,6 +31,7 @@ export default function Home() {
     <div className="flex justify-center"> <Info /> </div>
     <div className="flex justify-center"> <NewsLettre /> </div>
    <div className="flex justify-center"> <Media /> </div>
+ 
    {/* <div className="flex justify-center"> <ChatBox /> </div> */}
     <Footer />
     

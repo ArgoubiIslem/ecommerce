@@ -46,7 +46,7 @@ const NewCategorie = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    validate()
+
     setIsSubmitting(true)
   }
   const handleChange = (e) => {
@@ -54,20 +54,6 @@ const NewCategorie = () => {
       ...form,
       [e.target.name]: e.target.value,
     })
-  }
-
-  const validate = () => {
-    let err = {}
-
-    if (!form.categorieLib) {
-      err.categorieLib = 'categorieLib est obligatoire'
-    }
-
-    if (!form.description) {
-      err.description = 'Description est obligatoire'
-    }
-
-    setErrors(err)
   }
 
   return (
@@ -92,7 +78,7 @@ const NewCategorie = () => {
                   <input
                     className="w-full rounded bg-gray-200 px-5 py-1 text-gray-700"
                     id="cus_name"
-                    name="nom"
+                    name="categorieLib"
                     type="text"
                     required=""
                     placeholder=""

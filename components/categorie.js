@@ -112,25 +112,29 @@ function categorie() {
         <NewCategorie />
       ) : (
         <div className="my-6 rounded bg-white shadow-md">
-          {categoriesData?.map(function (categorie, i) {
-            console.log(categoriesData)
-            return (
-              <table className="w-full rounded shadow-lg" key={categorie._id}>
-                <thead>
-                  <tr className="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
-                    <th className="py-3 px-6 text-left">ID</th>
-                    <th className="py-3 px-6 text-left">catégorie</th>
-                    <th className="py-3 px-6 text-center">Déscription</th>
+          <table className="w-full rounded shadow-lg">
+            <thead>
+              <tr className="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
+                <th className="py-3 px-6 text-left">ID</th>
+                <th className="py-3 px-6 text-left">catégorie</th>
+                <th className="py-3 px-6 text-center">Déscription</th>
 
-                    <th className="py-3 px-6 text-center">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm font-light text-gray-600">
-                  <tr className="border-b border-gray-200 hover:bg-gray-100">
+                <th className="py-3 px-6 text-center">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody className="text-sm font-light text-gray-600">
+              {categoriesData?.map(function (categorie, i) {
+                console.log(categoriesData)
+                return (
+                  <tr
+                    className="border-b border-gray-200 hover:bg-gray-100"
+                    key={categorie._id}
+                  >
                     <td className="whitespace-nowrap py-3 px-6 text-left">
                       <div className="flex items-center">
                         <div className="mr-2"></div>
-                        <span className="font-medium">1</span>
+                        <span className="font-medium">#</span>
                       </div>
                     </td>
                     <td className="py-3 px-6 text-left">
@@ -204,10 +208,10 @@ function categorie() {
                       </div>
                     </td>
                   </tr>
-                </tbody>
-              </table>
-            )
-          })}
+                )
+              })}
+            </tbody>
+          </table>
         </div>
       )}
     </div>

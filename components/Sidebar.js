@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Dashboard from './Dashboard'
 import DashboardLayout from '../pages/DashboardLayout'
-function Sidebar({ dash, prod, order, vend, cat }) {
+function Sidebar({ dash, prod, order, four, cat }) {
   // const [showDashboard, setShowDashboard] = useState(true)
   // const [showProduits, setShowProduits] = useState(false)
   // const [showOrders, setShowOrders] = useState(false)
@@ -48,7 +48,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                 order(false) ||
                 dash(true) ||
                 prod(false) ||
-                vend(false) ||
+                four(false) ||
                 cat(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
@@ -78,7 +78,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                   order(false) ||
                   dash(true) ||
                   prod(false) ||
-                  vend(false) ||
+                  four(false) ||
                   cat(false)
                 }
               >
@@ -91,7 +91,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                 order(false) ||
                 dash(false) ||
                 prod(true) ||
-                vend(false) ||
+                four(false) ||
                 cat(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
@@ -118,7 +118,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                   order(false) ||
                   dash(false) ||
                   prod(true) ||
-                  vend(false) ||
+                  four(false) ||
                   cat(false)
                 }
               >
@@ -132,7 +132,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                 order(true) ||
                 dash(false) ||
                 prod(false) ||
-                vend(false) ||
+                four(false) ||
                 cat(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
@@ -165,7 +165,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                   order(true) ||
                   dash(false) ||
                   prod(false) ||
-                  vend(false) ||
+                  four(false) ||
                   cat(false)
                 }
               >
@@ -177,7 +177,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                 order(false) ||
                 dash(false) ||
                 prod(false) ||
-                vend(true) ||
+                four(true) ||
                 cat(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
@@ -208,7 +208,7 @@ function Sidebar({ dash, prod, order, vend, cat }) {
                   order(false) ||
                   dash(false) ||
                   prod(false) ||
-                  vend(true) ||
+                  four(true) ||
                   cat(false)
                 }
               >

@@ -52,7 +52,7 @@ const NewProduct = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    validate()
+
     setIsSubmitting(true)
   }
   const handleChange = (e) => {
@@ -60,37 +60,6 @@ const NewProduct = () => {
       ...form,
       [e.target.name]: e.target.value,
     })
-  }
-
-  const validate = () => {
-    let err = {}
-
-    if (!form.nom) {
-      err.nom = 'nom est obligatoire'
-    }
-    if (!form.categorie) {
-      err.categorie = 'categorie est obligatoire'
-    }
-    if (!form.image) {
-      err.image = 'image est obligatoire'
-    }
-    if (!form.prix) {
-      err.prix = 'prix est obligatoire'
-    }
-    if (!form.description) {
-      err.description = 'Description est obligatoire'
-    }
-    if (!form.countInStock) {
-      err.countInStock = 'countInStock est obligatoire'
-    }
-    if (!form.statut) {
-      err.statut = 'statut est obligatoire'
-    }
-    if (!form.marque) {
-      err.marque = 'statut est obligatoire'
-    }
-
-    setErrors(err)
   }
 
   return (
