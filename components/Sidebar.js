@@ -212,7 +212,7 @@ function Sidebar({ dash, prod, order, four, cat }) {
                   cat(false)
                 }
               >
-                <span className="mx-4">Vendeurs</span>
+                <span className="mx-4">Fournissuers</span>
               </a>
             </li>
             <li
@@ -220,7 +220,7 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 order(false) ||
                 dash(false) ||
                 prod(false) ||
-                vend(false) ||
+                four(false) ||
                 cat(true)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
