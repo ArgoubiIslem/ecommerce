@@ -1,7 +1,72 @@
 import React from 'react'
-import Headers from '../components/Headers'
-import Footer from '../components/Footer'
-function DetailPage() {
+
+import Headers from '../../components/Headers'
+import Footer from '../../components/Footer'
+import { useRouter } from 'next/router'
+import fetch from 'isomorphic-unfetch'
+import { useState, useEffect } from 'react'
+
+const DetailPage = ({ product }) => {
+  const [form, setForm] = useState({
+    nom: product.nom,
+    categorie: product.categorie,
+    image: product.image,
+    prix: product.prix,
+    description: product.description,
+    countInStock: product.countInStock,
+    statut: product.statut,
+    marque: product.marque,
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState({})
+  const router = useRouter()
+  useEffect(() => {
+    if (isSubmitting) {
+      console.log(Object.keys(errors).length + 'keys')
+      if (Object.keys(errors).length === 0) {
+        updateProduct()
+      } else {
+        alert('please fill the required fields !')
+      }
+    }
+  }, [isSubmitting])
+  const updateProduct = async () => {
+    setIsLoading(true)
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/products/${router.query.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+        }
+      )
+      setTimeout(() => {
+        setIsLoading(false)
+        alert('Modification avec success')
+      }, 500)
+      console.log('Modifier !' + JSON.stringify(form))
+      // router.push('/')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    validate()
+    setIsSubmitting(true)
+  }
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+
   return (
     <div>
       <Headers />
@@ -18,14 +83,14 @@ function DetailPage() {
                 <img
                   alt="ecommerce"
                   className="h-64 w-full rounded object-cover object-center lg:h-auto lg:w-1/2"
-                  src="https://i.pinimg.com/736x/b8/ed/87/b8ed8733ee0d25fc2c337c854d0c651b.jpg"
+                  src={form.image}
                 />
                 <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
                   <h2 className="title-font text-sm tracking-widest text-gray-900">
-                    Nom de marque
+                    {form.marque}
                   </h2>
                   <h1 className="title-font mb-1 text-3xl font-medium text-gray-900">
-                    Nom de produit
+                    {form.nom}
                   </h1>
                   <div className="mb-4 flex">
                     <span className="flex items-center">
@@ -125,18 +190,7 @@ function DetailPage() {
                       </a>
                     </span>
                   </div>
-                  <p className="leading-relaxed">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                  </p>
+                  <p className="leading-relaxed">{product.description}</p>
                   <div className="mt-6 mb-5 flex items-center border-b-2 border-gray-800 pb-5">
                     <div className="flex">
                       <span className="mr-3">Color</span>
@@ -169,18 +223,19 @@ function DetailPage() {
                       </div>
                     </div>
                     <div className="ml-6 flex items-center">
-                      <span className="mr-3">Quantité</span>
+                      <span className="mr-3">Qte</span>
                       <div className="relative">
                         <input
                           type="number"
                           className="appearance-none rounded border  bg-transparent py-2 pl-3 pr-10 text-black focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                          value={form.countInStock}
                         />
                       </div>
                     </div>
                   </div>
                   <div className="flex">
                     <span className="title-font text-2xl font-medium text-white">
-                      Prix DT
+                      {form.prix} DT
                     </span>
 
                     <button className="ml-auto flex rounded border-0 bg-yellow-400 py-2 px-6 font-semibold  text-gray-800 hover:bg-yellow-400 focus:outline-none">
@@ -224,4 +279,10 @@ function DetailPage() {
   )
 }
 
+DetailPage.getInitialProps = async ({ query: { id } }) => {
+  const res = await fetch(`http://localhost:3000/api/products/${id}`)
+  const { data } = await res.json()
+
+  return { product: data }
+}
 export default DetailPage
