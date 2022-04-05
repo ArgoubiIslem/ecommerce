@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Dashboard from './Dashboard'
 import DashboardLayout from '../pages/DashboardLayout'
-function Sidebar({ dash, prod, order, four, cat }) {
+function Sidebar({ dash, prod, order, four, cat, event }) {
   // const [showDashboard, setShowDashboard] = useState(true)
   // const [showProduits, setShowProduits] = useState(false)
   // const [showOrders, setShowOrders] = useState(false)
@@ -49,7 +49,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 dash(true) ||
                 prod(false) ||
                 four(false) ||
-                cat(false)
+                cat(false) ||
+                event(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
             >
@@ -79,7 +80,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                   dash(true) ||
                   prod(false) ||
                   four(false) ||
-                  cat(false)
+                  cat(false) ||
+                  event(false)
                 }
               >
                 <span className="mx-4">Tableau de bord</span>
@@ -92,7 +94,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 dash(false) ||
                 prod(true) ||
                 four(false) ||
-                cat(false)
+                cat(false) ||
+                event(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
             >
@@ -119,7 +122,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                   dash(false) ||
                   prod(true) ||
                   four(false) ||
-                  cat(false)
+                  cat(false) ||
+                  event(false)
                 }
               >
                 <span className="mx-4">Produits</span>
@@ -133,7 +137,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 dash(false) ||
                 prod(false) ||
                 four(false) ||
-                cat(false)
+                cat(false) ||
+                event(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
             >
@@ -166,10 +171,11 @@ function Sidebar({ dash, prod, order, four, cat }) {
                   dash(false) ||
                   prod(false) ||
                   four(false) ||
-                  cat(false)
+                  cat(false) ||
+                  event(false)
                 }
               >
-                <span className="mx-4">Orders</span>
+                <span className="mx-4">Commandes</span>
               </a>
             </li>
             <li
@@ -178,7 +184,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 dash(false) ||
                 prod(false) ||
                 four(true) ||
-                cat(false)
+                cat(false) ||
+                event(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
             >
@@ -209,7 +216,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                   dash(false) ||
                   prod(false) ||
                   four(true) ||
-                  cat(false)
+                  cat(false) ||
+                  event(false)
                 }
               >
                 <span className="mx-4">Fournissuers</span>
@@ -221,7 +229,8 @@ function Sidebar({ dash, prod, order, four, cat }) {
                 dash(false) ||
                 prod(false) ||
                 four(false) ||
-                cat(true)
+                cat(true) ||
+                event(false)
               }
               className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
             >
@@ -255,6 +264,55 @@ function Sidebar({ dash, prod, order, four, cat }) {
               <a>
                 <span className="mx-4">Catégories</span>
               </a>
+            </li>
+            <li
+              onClick={() =>
+                order(false) ||
+                dash(false) ||
+                prod(false) ||
+                four(false) ||
+                cat(false) ||
+                event(true)
+              }
+              className="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800"
+            >
+              <svg
+                class="h-6 w-6 text-white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                {' '}
+                <path stroke="none" d="M0 0h24v24H0z" />{' '}
+                <rect x="4" y="5" width="16" height="16" rx="2" />{' '}
+                <line x1="16" y1="3" x2="16" y2="7" />{' '}
+                <line x1="8" y1="3" x2="8" y2="7" />{' '}
+                <line x1="4" y1="11" x2="20" y2="11" />{' '}
+                <rect x="8" y="15" width="2" height="2" />
+              </svg>
+
+              {/* <Link
+                href="/DashboardLayout"
+                className="mt-4 flex items-center border-l-4 px-6 py-2 duration-200"
+              > */}
+              <a
+                onClick={() =>
+                  order(false) ||
+                  dash(false) ||
+                  prod(false) ||
+                  four(false) ||
+                  cat(false) ||
+                  event(true)
+                }
+              >
+                <span className="mx-4">Evenement</span>
+              </a>
+              {/* </Link> */}
             </li>
             <li class="mt-4 flex cursor-pointer space-x-2 px-6 py-4 font-bold text-white transition duration-100 hover:rounded-br-3xl hover:bg-white hover:text-blue-800">
               <svg

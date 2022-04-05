@@ -32,10 +32,47 @@ function Fournisseurs() {
   return (
     <div className="container mx-auto px-4 py-16 pt-4 ">
       <div className="container">
+        <div className="absolute top-40 right-4 ">
+          {/* <Link
+          href="/NewProduct"
+          className="mt-4 flex items-center border-l-4 px-6 py-2 duration-200"
+        > */}
+          <button
+            onClick={() =>
+              !newProduct ? setNewProduct(true) : setNewProduct(false)
+            }
+            className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded bg-green-200 py-2 px-4 font-bold"
+          >
+            <svg
+              className="h-3 w-3 text-black"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />{' '}
+              <line x1="12" y1="5" x2="12" y2="19" />{' '}
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            <span>Ajouter fournisseur</span>
+          </button>
+          {/* </Link> */}
+
+          <button
+            className="focus:shadow-outline ml-8 rounded bg-blue-500 py-2 px-4 font-bold text-white shadow hover:bg-blue-500 focus:outline-none  "
+            type="button"
+          >
+            Export
+          </button>
+        </div>
         <div className="min-w-screen flex  min-h-screen  justify-center overflow-hidden bg-gray-100 font-sans  ">
           <div className="w-full lg:w-5/6">
             <h3 className="mb-8 text-3xl font-medium text-gray-700">
-              Les vendeurs
+              Les Fournisseurs
             </h3>
             <div
               class="mx-auto flex max-w-md items-center rounded-lg bg-white "

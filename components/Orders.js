@@ -6,7 +6,9 @@ function Orders() {
       <div className="container">
         <div className="min-w-screen flex  min-h-screen  justify-center overflow-hidden bg-gray-100 font-sans  ">
           <div className="w-full lg:w-5/6">
-            <h3 className="mb-8 text-3xl font-medium text-gray-700">Orders</h3>
+            <h3 className="mb-8 text-3xl font-medium text-gray-700">
+              Les Commandes
+            </h3>
             <div
               class="mx-auto flex max-w-md items-center rounded-lg bg-white "
               x-data="{ search: '' }"

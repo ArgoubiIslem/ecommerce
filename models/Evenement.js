@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const evenementSchema = new mongoose.Schema({
-  description: { type: Number, required: true },
+  description: { type: String, required: true },
   date: { type: Date, required: true },
 })
 

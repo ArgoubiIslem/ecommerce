@@ -21,16 +21,7 @@ const DetailPage = ({ product }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
   const router = useRouter()
-  useEffect(() => {
-    if (isSubmitting) {
-      console.log(Object.keys(errors).length + 'keys')
-      if (Object.keys(errors).length === 0) {
-        updateProduct()
-      } else {
-        alert('please fill the required fields !')
-      }
-    }
-  }, [isSubmitting])
+
   const updateProduct = async () => {
     setIsLoading(true)
     try {

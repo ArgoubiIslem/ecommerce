@@ -44,7 +44,7 @@ function Produits() {
           onClick={() =>
             !newProduct ? setNewProduct(true) : setNewProduct(false)
           }
-          className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded py-2 px-4 font-bold"
+          className="bg-grey-light  hover:bg-grey text-grey-darkest inline-flex items-center rounded bg-green-200 py-2 px-4 font-bold"
         >
           <svg
             className="h-3 w-3 text-black"

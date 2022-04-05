@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Categorie from '../components/Categorie'
+import Evenement from '../components/Evenement'
 import Container from '../components/Container'
 import Dashboard from '../components/Dashboard'
 import Header from '../components/Header'
@@ -16,6 +17,7 @@ function DashboardLayout() {
   const [showOrders, setShowOrders] = useState(false)
   const [showFournisseurs, setShowFournisseurs] = useState(false)
   const [showCategorie, setShowCategorie] = useState(false)
+  const [showEvenement, setShowEvenement] = useState(false)
   return (
     <div className="font-roboto flex h-screen bg-gray-200">
       <Sidebar
@@ -24,6 +26,7 @@ function DashboardLayout() {
         order={setShowOrders}
         four={setShowFournisseurs}
         cat={setShowCategorie}
+        event={setShowEvenement}
       />
 
       <div className="flex flex-1 flex-col overflow-hidden">
@@ -38,6 +41,7 @@ function DashboardLayout() {
           {showOrders ? <Orders /> : null}
           {showFournisseurs ? <Fournisseurs /> : null}
           {showCategorie ? <Categorie /> : null}
+          {showEvenement ? <Evenement /> : null}
 
           {/* <div className="container mx-auto px-6 py-8">
           

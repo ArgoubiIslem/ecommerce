@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-import NewCategorie from './NewCategorie'
+import NewEvent from './NewEvent'
 
-function categorie() {
-  const [categoriesData, setCategoriesData] = useState(null)
-  const [newCategorie, setNewCategorie] = useState(false)
+function evenement() {
+  const [evenementsData, setEvenementsData] = useState(null)
+  const [newEvent, setNewEvent] = useState(false)
+
   useEffect(() => {
     async function getUser() {
       try {
-        const response = await fetch('http://localhost:3000/api/categories')
+        const response = await fetch('http://localhost:3000/api/evenements')
 
         if (!response.ok) {
           throw new Error(`Error! status: ${response.status}`)
@@ -17,7 +18,7 @@ function categorie() {
 
         const result = await response.json()
         console.log(result['data'])
-        setCategoriesData(result['data'])
+        setEvenementsData(result['data'])
         return result
       } catch (err) {
         console.log(err)
@@ -33,16 +34,16 @@ function categorie() {
 
   return (
     <div className="container mx-auto px-4 py-16 pt-4 ">
-      <h3 className="mb-8 text-3xl font-medium text-gray-700">catégories</h3>
+      <h3 className="mb-8 text-3xl font-medium text-gray-700">
+        Les evenements
+      </h3>
       <div className="absolute top-40 right-4 ">
         {/* <Link
           href="/NewProduct"
           className="mt-4 flex items-center border-l-4 px-6 py-2 duration-200"
         > */}
         <button
-          onClick={() =>
-            !newCategorie ? setNewCategorie(true) : setNewCategorie(false)
-          }
+          onClick={() => (!newEvent ? setNewEvent(true) : setNewEvent(false))}
           className="bg-grey-light  hover:bg-grey text-grey-darkest inline-flex items-center rounded bg-green-200 py-2 px-4 font-bold"
         >
           <svg
@@ -60,7 +61,7 @@ function categorie() {
             <line x1="12" y1="5" x2="12" y2="19" />{' '}
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
-          <span>Créer categories</span>
+          <span>Créer Evenements</span>
         </button>
         {/* </Link> */}
 
@@ -106,30 +107,30 @@ function categorie() {
         </form>
       </div> */}
       <h1 className="mb-10 text-3xl font-medium text-gray-700">
-        List des catégories
+        List des Evenements
       </h1>
-      {newCategorie ? (
-        <NewCategorie />
+      {newEvent ? (
+        <NewEvent />
       ) : (
         <div className="my-6 rounded bg-white shadow-md">
           <table className="w-full rounded shadow-lg">
             <thead>
               <tr className="bg-gray-200 text-sm uppercase leading-normal text-gray-600">
                 <th className="py-3 px-6 text-left">ID</th>
-                <th className="py-3 px-6 text-left">catégorie</th>
-                <th className="py-3 px-6 text-center">Déscription</th>
+                <th className="py-3 px-6 text-left">Description</th>
+                <th className="py-3 px-6 text-center">Date</th>
 
                 <th className="py-3 px-6 text-center">Actions</th>
               </tr>
             </thead>
 
             <tbody className="text-sm font-light text-gray-600">
-              {categoriesData?.map(function (categorie, i) {
-                console.log(categoriesData)
+              {evenementsData?.map(function (evenement, i) {
+                console.log(evenementsData)
                 return (
                   <tr
                     className="border-b border-gray-200 hover:bg-gray-100"
-                    key={categorie._id}
+                    key={evenement._id}
                   >
                     <td className="whitespace-nowrap py-3 px-6 text-left">
                       <div className="flex items-center">
@@ -137,14 +138,15 @@ function categorie() {
                         <span className="font-medium">#</span>
                       </div>
                     </td>
+
                     <td className="py-3 px-6 text-left">
                       <div className="flex items-center">
-                        <span>{categorie.categorieLib}</span>
+                        <span>{evenement.description}</span>
                       </div>
                     </td>
                     <td className="py-3 px-6 text-center">
                       <div className="flex items-center justify-center">
-                        {categorie.description}
+                        {evenement.date}
                       </div>
                     </td>
 
@@ -173,7 +175,7 @@ function categorie() {
                         </div>
 
                         <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
-                          <Link href={`/${categorie._id}/editCategorie`}>
+                          <Link href={`/${evenement._id}/editEvenement`}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -189,23 +191,22 @@ function categorie() {
                             </svg>
                           </Link>
                         </div>
-                        <button onClick={open}>
-                          <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                              />
-                            </svg>
-                          </div>
-                        </button>
+
+                        <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -219,4 +220,4 @@ function categorie() {
   )
 }
 
-export default categorie
+export default evenement
