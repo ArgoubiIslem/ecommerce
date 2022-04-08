@@ -219,7 +219,7 @@ const DetailPage = ({ product }) => {
                         <input
                           type="number"
                           className="appearance-none rounded border  bg-transparent py-2 pl-3 pr-10 text-black focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                          value={form.countInStock}
+                          // value={form.countInStock}
                         />
                       </div>
                     </div>

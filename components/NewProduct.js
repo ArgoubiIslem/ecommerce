@@ -5,6 +5,21 @@ import { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Loader from './Loader'
 const NewProduct = () => {
+  const [ImageSelected, setImageSelected] = useState(null)
+
+  const imageUpload = (event) => {
+    if (event.target.files[0]) {
+      let reader = new FileReader()
+
+      reader.onload = (e) => {
+        setImageSelected(e.target.result)
+      }
+
+      reader.readAsDataURL(event.target.files[0])
+    }
+
+    // setSave(true);
+  }
   const [form, setForm] = useState({
     nom: '',
     categorie: '',
@@ -99,7 +114,7 @@ const NewProduct = () => {
                   >
                     Image de produit
                   </label>
-                  <input
+                  {/* <input
                     className="w-full rounded  bg-gray-200 px-5 py-4 text-gray-700"
                     id="cus_email"
                     name="image"
@@ -107,7 +122,26 @@ const NewProduct = () => {
                     required=""
                     aria-label="Email"
                     onChange={handleChange}
-                  />
+                  /> */}
+                  <div className=" w-full space-y-12 overflow-y-auto py-6 px-8">
+                    <img
+                      src={ImageSelected ? ImageSelected : 'image'}
+                      className="mx-auto flex h-52 w-52 justify-center rounded-full object-cover md:h-40 md:w-40"
+                    />
+                    <div className="mt-1 inline-block p-0.5">
+                      <input
+                        type="file"
+                        id="upload"
+                        name="image"
+                        onChange={handleChange}
+                        // onChange={(e) => imageUpload(e)}
+                        hidden
+                      />
+                      <label for="upload">
+                        <div className="-mt-16 -mr-52 h-10 w-10 cursor-pointer  rounded-full bg-blue-400 px-2 py-1 text-xs font-medium tracking-wider text-white transition duration-300 ease-in hover:bg-blue-500"></div>
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div className="mt-2">
                   <label class=" block text-sm text-gray-600" for="cus_email">
