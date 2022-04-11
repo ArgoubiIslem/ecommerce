@@ -12,6 +12,7 @@ import ShopCategorie from '../components/ShopCategorie'
 import ChatBox from '../components/ChatBox'
 
 export default function Home() {
+
   return(
     <div>
     <Head>
@@ -20,6 +21,7 @@ export default function Home() {
       <link rel="icon" href="/favicon.icon" />
       
     </Head>
+   
     <div><Headers /></div>
     <div><Carousels /></div>
     <Blogs />

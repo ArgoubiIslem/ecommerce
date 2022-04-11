@@ -34,6 +34,41 @@ function categorie() {
   return (
     <div className="container mx-auto px-4 py-16 pt-4 ">
       <h3 className="mb-8 text-3xl font-medium text-gray-700">catégories</h3>
+      <div
+        class="mx-auto flex max-w-md items-center rounded-lg bg-white "
+        x-data="{ search: '' }"
+      >
+        <div class="w-full">
+          <input
+            onChange={(event) => {
+              setSearchTerm(event.target.value)
+            }}
+            type="search"
+            class="w-full rounded-full px-4 py-1 text-gray-800 focus:outline-none"
+            placeholder="search"
+            x-model="search"
+          />
+        </div>
+        <button
+          type="submit"
+          class="flex h-12 w-12 items-center justify-center rounded-r-lg bg-blue-500 text-white"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
+      </div>
       <div className="absolute top-40 right-4 ">
         {/* <Link
           href="/NewProduct"

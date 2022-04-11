@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch'
 import { useRouter } from 'next/router'
 import { Confirm, Button, Loader } from 'semantic-ui-react'
 function Fournisseurs() {
+  const [searchTerm, setSearchTerm] = useState('')
   const [confirm, setConfirm] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
   const router = useRouter()
@@ -115,6 +116,9 @@ function Fournisseurs() {
             >
               <div class="w-full">
                 <input
+                  onChange={(event) => {
+                    setSearchTerm(event.target.value)
+                  }}
                   type="search"
                   class="w-full rounded-full px-4 py-1 text-gray-800 focus:outline-none"
                   placeholder="search"
@@ -155,93 +159,64 @@ function Fournisseurs() {
                     </tr>
                   </thead>
                   <tbody className="text-sm font-light text-gray-600">
-                    {fournisseursData?.map(function (fournisseur, i) {
-                      console.log(fournisseursData)
-                      return (
-                        <tr className="border-b border-gray-200 hover:bg-gray-100">
-                          {isDeleting ? (
-                            <Loader active />
-                          ) : (
-                            <>
-                              <td className="whitespace-nowrap py-3 px-6 text-left">
-                                <div className="flex items-center">
-                                  <div className="mr-2"></div>
-                                  <span className="font-medium">#</span>
-                                </div>
-                              </td>
-                              <td className="py-3 px-6 text-left">
-                                <div className="flex items-center">
-                                  <div className="mr-2">
-                                    <img
-                                      className="h-6 w-6 rounded-full"
-                                      src={fournisseur.image}
-                                    />
+                    {fournisseursData
+                      ?.filter((fournisseur) => {
+                        if (searchTerm == '') {
+                          return fournisseur
+                        } else if (
+                          fournisseur.nom
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase())
+                        ) {
+                          return fournisseur
+                        }
+                      })
+                      .map(function (fournisseur, i) {
+                        console.log(fournisseursData)
+                        return (
+                          <tr className="border-b border-gray-200 hover:bg-gray-100">
+                            {isDeleting ? (
+                              <Loader active />
+                            ) : (
+                              <>
+                                <td className="whitespace-nowrap py-3 px-6 text-left">
+                                  <div className="flex items-center">
+                                    <div className="mr-2"></div>
+                                    <span className="font-medium">#</span>
                                   </div>
-                                  <span>
-                                    {fournisseur.nom} {fournisseur.Prenom}
-                                  </span>
-                                </div>
-                              </td>
-                              <td className="py-3 px-6 text-center">
-                                <div className="flex items-center justify-center">
-                                  {fournisseur.email}
-                                </div>
-                              </td>
-                              <td className="py-3 px-6 text-center">
-                                <div className="item-center flex justify-center">
-                                  <span className="rounded-full bg-green-200 py-1 px-3 text-xs text-green-600">
-                                    {fournisseur.tel}
-                                  </span>
-                                </div>
-                              </td>
-                              <td className="py-3 px-6 text-center">
-                                <div className="item-center flex justify-center">
-                                  {fournisseur.adresse}
-                                </div>
-                              </td>
-                              <td className="py-3 px-6 text-center">
-                                <div className="item-center flex justify-center">
-                                  <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke="currentColor"
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                </td>
+                                <td className="py-3 px-6 text-left">
+                                  <div className="flex items-center">
+                                    <div className="mr-2">
+                                      <img
+                                        className="h-6 w-6 rounded-full"
+                                        src={fournisseur.image}
                                       />
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                      />
-                                    </svg>
+                                    </div>
+                                    <span>
+                                      {fournisseur.nom} {fournisseur.Prenom}
+                                    </span>
                                   </div>
-                                  <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
-                                    <Link
-                                      href={`/${fournisseur._id}/editFournissseur`}
-                                    >
-                                      <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                      >
-                                        <path
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                          strokeWidth="2"
-                                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                                        />
-                                      </svg>
-                                    </Link>
+                                </td>
+                                <td className="py-3 px-6 text-center">
+                                  <div className="flex items-center justify-center">
+                                    {fournisseur.email}
                                   </div>
-                                  <button onClick={open}>
+                                </td>
+                                <td className="py-3 px-6 text-center">
+                                  <div className="item-center flex justify-center">
+                                    <span className="rounded-full bg-green-200 py-1 px-3 text-xs text-green-600">
+                                      {fournisseur.tel}
+                                    </span>
+                                  </div>
+                                </td>
+                                <td className="py-3 px-6 text-center">
+                                  <div className="item-center flex justify-center">
+                                    {fournisseur.adresse}
+                                  </div>
+                                </td>
+                                <td className="py-3 px-6 text-center">
+                                  <div className="item-center flex justify-center">
                                     <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
                                       <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -253,23 +228,64 @@ function Fournisseurs() {
                                           strokeLinecap="round"
                                           strokeLinejoin="round"
                                           strokeWidth="2"
-                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                        />
+                                        <path
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                          strokeWidth="2"
+                                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                                         />
                                       </svg>
                                     </div>
-                                  </button>
-                                </div>
-                              </td>
-                            </>
-                          )}
-                          <Confirm
-                            open={confirm}
-                            onCancel={close}
-                            onConfirm={handleDelete}
-                          />
-                        </tr>
-                      )
-                    })}
+                                    <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
+                                      <Link
+                                        href={`/${fournisseur._id}/editFournissseur`}
+                                      >
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          fill="none"
+                                          viewBox="0 0 24 24"
+                                          stroke="currentColor"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                                          />
+                                        </svg>
+                                      </Link>
+                                    </div>
+                                    <button onClick={open}>
+                                      <div className="mr-2 w-4 transform hover:scale-110 hover:text-purple-500">
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          fill="none"
+                                          viewBox="0 0 24 24"
+                                          stroke="currentColor"
+                                        >
+                                          <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </button>
+                                  </div>
+                                </td>
+                              </>
+                            )}
+                            <Confirm
+                              open={confirm}
+                              onCancel={close}
+                              onConfirm={handleDelete}
+                            />
+                          </tr>
+                        )
+                      })}
                   </tbody>
                 </table>
               </div>
