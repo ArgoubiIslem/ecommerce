@@ -35,7 +35,7 @@ function Produits() {
 
   const filterResult = (catItem) => {
     const result = productsData.filter((curData) => {
-      return curData.Categorie === catItem
+      return curData.categorie === catItem
     })
     setProductsData(result)
   }

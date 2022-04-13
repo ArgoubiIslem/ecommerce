@@ -7,11 +7,11 @@ import Loader from './Loader'
 const NewProduct = () => {
   const [form, setForm] = useState({
     nom: '',
-    categorie: '',
     image: '',
     prix: 0,
     description: '',
     countInStock: 0,
+    categorie: '',
     statut: '',
     marque: '',
   })
@@ -160,20 +160,18 @@ const NewProduct = () => {
                     catégorie
                   </label>
                   <select
-                    id="vehicle_id"
                     name="categorie"
                     className="mt-1 block w-full rounded-md border border-gray-300 bg-gray-200  py-2 px-3 text-gray-600 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     required
                     onChange={handleChange}
                   >
-                    <option value="">select</option>
-                    <option value="1" data-val="1">
+                    <option value="Homme" data-val="Homme">
                       Homme
                     </option>
-                    <option value="2" data-val="2">
+                    <option value="Femme" data-val="Femme">
                       Femme
                     </option>
-                    <option value="2" data-val="2">
+                    <option value="Enfant" data-val="Enfant">
                       Enfant
                     </option>
                   </select>
@@ -200,11 +198,9 @@ const NewProduct = () => {
                   </label>
                   <input
                     className="w-full rounded bg-gray-200 px-2 py-2 text-gray-700"
-                    id="cus_name"
                     name="marque"
                     type="text"
                     placeholder="marque"
-                    aria-label="Name"
                     required
                     onChange={handleChange}
                   />

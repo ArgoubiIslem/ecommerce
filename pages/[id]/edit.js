@@ -7,11 +7,11 @@ import Loader from '../../components/Loader'
 const EditProduct = ({ product }) => {
   const [form, setForm] = useState({
     nom: product.nom,
-    categorie: product.categorie,
     image: product.image,
     prix: product.prix,
     description: product.description,
     countInStock: product.countInStock,
+    categorie: product.categorie,
     statut: product.statut,
     marque: product.marque,
   })
@@ -55,7 +55,7 @@ const EditProduct = ({ product }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    validate()
+
     setIsSubmitting(true)
   }
   const handleChange = (e) => {
@@ -63,37 +63,6 @@ const EditProduct = ({ product }) => {
       ...form,
       [e.target.name]: e.target.value,
     })
-  }
-
-  const validate = () => {
-    let err = {}
-
-    if (!form.nom) {
-      err.nom = 'nom est obligatoire'
-    }
-    if (!form.categorie) {
-      err.categorie = 'categorie est obligatoire'
-    }
-    if (!form.image) {
-      err.image = 'image est obligatoire'
-    }
-    if (!form.prix) {
-      err.prix = 'prix est obligatoire'
-    }
-    if (!form.description) {
-      err.description = 'Description est obligatoire'
-    }
-    if (!form.countInStock) {
-      err.countInStock = 'countInStock est obligatoire'
-    }
-    if (!form.statut) {
-      err.statut = 'statut est obligatoire'
-    }
-    if (!form.marque) {
-      err.marque = 'statut est obligatoire'
-    }
-
-    setErrors(err)
   }
 
   return (
@@ -197,14 +166,13 @@ const EditProduct = ({ product }) => {
                     required
                     onChange={handleChange}
                   >
-                    <option value="">select</option>
-                    <option value="1" data-val="1">
+                    <option value="Homme" data-val="Homme">
                       Homme
                     </option>
-                    <option value="2" data-val="2">
+                    <option value="Femme" data-val="Femme">
                       Femme
                     </option>
-                    <option value="2" data-val="2">
+                    <option value="Enfant" data-val="Enfant">
                       Enfant
                     </option>
                   </select>
