@@ -3,18 +3,11 @@ import dbConnect from '../../../utils/db'
 
 dbConnect()
 export default async (req, res) => {
-  var filter = {
-    categorieLib: {
-      $gte: 'femme',
-    },
-  }
   const { method } = req
   switch (method) {
     case 'GET':
       try {
-        const products = await Product.find({
-          filter,
-        })
+        const products = await Product.find({})
         res.status(200).json({ success: true, data: products })
       } catch (error) {
         res.status(400).json({ success: false })

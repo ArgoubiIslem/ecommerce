@@ -33,11 +33,90 @@ function Produits() {
       .catch(console.error)
   }, [])
 
+  const filterResult = (catItem) => {
+    const result = productsData.filter((curData) => {
+      return curData.Categorie === catItem
+    })
+    setProductsData(result)
+  }
+
   return (
     <div className="w-full ">
       <h3 className="mt-8 text-3xl font-medium text-gray-700"> Les Produits</h3>
+      <br></br>
+      <br></br>
 
-      <div className="absolute top-40 right-4 ">
+      <div class="group -mt-9 ml-2 inline-block h-9">
+        <div class="mx-auto max-w-md">
+          <div class="relative">
+            <div class="flex h-10 items-center rounded border border-gray-200 bg-white">
+              <input
+                value="Categorie"
+                name="select"
+                class="w-full appearance-none px-4 text-gray-800 outline-none"
+                checked
+              />
+
+              <button class="cursor-pointer text-gray-300 outline-none transition-all hover:text-gray-600 focus:outline-none">
+                <svg
+                  class="mx-2 h-4 w-4 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <label
+                for="show_more"
+                class="cursor-pointer border-l border-gray-200 text-gray-300 outline-none transition-all hover:text-gray-600 focus:outline-none"
+              >
+                <svg
+                  class="h-4 w-4 transform  fill-current transition duration-150 ease-in-out group-hover:-rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+              </label>
+            </div>
+
+            <input
+              type="checkbox"
+              name="show_more"
+              id="show_more"
+              class="peer hidden"
+              checked
+            />
+            <div class="absolute mt-1  hidden w-full scale-0 transform flex-col overflow-hidden rounded border border-gray-200 bg-white shadow transition duration-150 ease-in-out group-hover:scale-100 peer-checked:flex">
+              <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                <button onClick={() => filterResult('Femme')}>Femme</button>
+              </div>
+              <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                <button onClick={() => filterResult('Homme')}>Homme</button>
+              </div>
+              <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                <button onClick={() => filterResult('Enfant')}>Enfant</button>
+              </div>
+              <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                <button onClick={() => setProductsData(productsData)}>
+                  Tous
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-40 right-4  ">
         {/* <Link
           href="/NewProduct"
           className="mt-4 flex items-center border-l-4 px-6 py-2 duration-200"
@@ -83,7 +162,7 @@ function Produits() {
       <div className="mx-auto grid w-full justify-evenly gap-6 px-6">
         <div>
           <div
-            class="mx-auto flex max-w-md items-center rounded-lg bg-white "
+            class="mx-auto -mt-9 flex max-w-md items-center rounded-lg bg-white "
             x-data="{ search: '' }"
           >
             <div class="w-full">
@@ -139,37 +218,39 @@ function Produits() {
                 console.log(productsData)
                 return (
                   <div className="mt-10 w-full " key={product._id}>
-                    <div className="mx-auto w-full max-w-sm overflow-hidden rounded-md shadow-md">
-                      <div className="min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                        <img
-                          className="h-full w-full object-cover object-center lg:h-full lg:w-full "
-                          src={product.image}
-                          alt=""
-                        />
-                      </div>
-                      <div className="px-5 py-3">
-                        <span className="mt-2 text-gray-500">
-                          {product.nom}
-                        </span>
-                        <br></br>
-                        <span className="mt-2 text-gray-500">
-                          {product.prix} DT
-                        </span>
-                        <br></br>
-                        <Link href={`/${product._id}/edit`}>
+                    <div className=" mx-auto w-full max-w-sm overflow-hidden rounded-md shadow-md">
+                      <div className="grid-cols-4">
+                        <div className=" min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+                          <img
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full "
+                            src={product.image}
+                            alt=""
+                          />
+                        </div>
+                        <div className="px-5 py-3">
+                          <span className="mt-2 text-gray-500">
+                            {product.nom}
+                          </span>
+                          <br></br>
+                          <span className="mt-2 text-gray-500">
+                            {product.prix} DT
+                          </span>
+                          <br></br>
+                          <Link href={`/${product._id}/edit`}>
+                            <button
+                              className="focus:shadow-outline rounded bg-blue-500 py-2 px-4 font-bold text-white shadow hover:bg-blue-500 focus:outline-none"
+                              type="button"
+                            >
+                              Edit
+                            </button>
+                          </Link>
                           <button
-                            className="focus:shadow-outline rounded bg-blue-500 py-2 px-4 font-bold text-white shadow hover:bg-blue-500 focus:outline-none"
+                            className="focus:shadow-outline ml-8 rounded bg-red-500 py-2 px-4 font-bold text-white shadow hover:bg-red-500 focus:outline-none"
                             type="button"
                           >
-                            Edit
+                            Supprimer
                           </button>
-                        </Link>
-                        <button
-                          className="focus:shadow-outline ml-8 rounded bg-red-500 py-2 px-4 font-bold text-white shadow hover:bg-red-500 focus:outline-none"
-                          type="button"
-                        >
-                          Supprimer
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
