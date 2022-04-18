@@ -49,7 +49,7 @@ function ProdEnfant() {
             <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {productsData
                 ?.filter((product) => {
-                  return product.Categorie === 'Enfant'
+                  return product.categorie === 'Enfant'
                 })
                 .map(function (product, i) {
                   console.log(productsData)

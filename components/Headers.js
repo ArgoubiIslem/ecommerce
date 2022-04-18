@@ -29,9 +29,7 @@ function Headers() {
                 <li>
                   <div className="group  inline-block">
                     <button className="min-w-32 flex items-center rounded-sm  bg-transparent px-3  outline-none focus:outline-none">
-                      <span className="flex-1 pr-1 font-semibold">
-                        Catégorie
-                      </span>
+                      <span className="flex-1 pr-1 font-semibold">FEMME</span>
                       <span>
                         <svg
                           className="h-4 w-4 transform  fill-current transition duration-150 ease-in-out group-hover:-rotate-180"
@@ -42,23 +40,158 @@ function Headers() {
                         </svg>
                       </span>
                     </button>
-                    <ul className="min-w-32 absolute z-50  origin-top  scale-0 transform rounded-sm bg-transparent  text-black transition duration-150 ease-in-out group-hover:scale-100">
-                      <Link href="ProdHomme">
-                        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
-                          Homme
-                        </li>
-                      </Link>
-                      <Link href="ProdFemme">
-                        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
-                          Femme
-                        </li>
-                      </Link>
-                      <Link href="ProdEnfant">
-                        <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
-                          Enfant
-                        </li>
-                      </Link>
-                    </ul>
+
+                    <div class="min-w-32 absolute z-50  origin-top  scale-0 transform rounded-sm bg-transparent  text-black transition duration-150 ease-in-out group-hover:scale-100">
+                      <div class="dark-mode:bg-gray-700 rounded-md bg-white px-2 pt-2 pb-4 shadow-lg">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">DJEBBA</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">QOFTANNE</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">FOUTA & BLOUSA</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">PULLE FATHILHA</p>
+                            </div>
+                          </a>
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">SAFSARI</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </li>
+              <li>
+                <li>
+                  <div className="group  inline-block">
+                    <button className="min-w-32 flex items-center rounded-sm  bg-transparent px-3  outline-none focus:outline-none">
+                      <span className="flex-1 pr-1 font-semibold">HOMME</span>
+                      <span>
+                        <svg
+                          className="h-4 w-4 transform  fill-current transition duration-150 ease-in-out group-hover:-rotate-180"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </span>
+                    </button>
+
+                    <div class="min-w-32 absolute z-50  origin-top  scale-0 transform rounded-sm bg-transparent  text-black transition duration-150 ease-in-out group-hover:scale-100">
+                      <div class="dark-mode:bg-gray-700 rounded-md bg-white px-2 pt-2 pb-4 shadow-lg">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">DJEBBA</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">BURNOUSE</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">DENGRI</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </li>
+              <li>
+                <li>
+                  <div className="group  inline-block">
+                    <button className="min-w-32 flex items-center rounded-sm  bg-transparent px-3  outline-none focus:outline-none">
+                      <span className="flex-1 pr-1 font-semibold">ENFANT</span>
+                      <span>
+                        <svg
+                          className="h-4 w-4 transform  fill-current transition duration-150 ease-in-out group-hover:-rotate-180"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </span>
+                    </button>
+
+                    <div class="min-w-32 absolute z-50  origin-top  scale-0 transform rounded-sm bg-transparent  text-black transition duration-150 ease-in-out group-hover:scale-100">
+                      <div class="dark-mode:bg-gray-700 rounded-md bg-white px-2 pt-2 pb-4 shadow-lg">
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">DJEBBA FILLE</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">DJEBBA GARÇONS</p>
+                            </div>
+                          </a>
+
+                          <a
+                            class="row  dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline flex items-start rounded-lg bg-transparent p-2 hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none"
+                            href="#"
+                          >
+                            <div class="ml-3">
+                              <p class="font-semibold">FOUTA & BLOUSA</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </li>
               </li>
@@ -169,7 +302,7 @@ function Headers() {
                     </svg>
                   </button>
 
-                  <div class="flex items-center rounded-xl border-2 p-2">
+                  <div className="flex items-center rounded-xl border-2 p-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="h-6 w-6 text-gray-400"

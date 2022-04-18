@@ -4,7 +4,13 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Loader from './Loader'
+import ListFemme from './ListFemme'
+import ListHomme from './ListHomme'
+import ListEnfant from './ListEnfant'
 const NewProduct = () => {
+  const [showListFemme, setShowListFemme] = useState(false)
+  const [showListHomme, setShowListHomme] = useState(false)
+  const [showListEnfant, setShowListEnfant] = useState(false)
   const [form, setForm] = useState({
     nom: '',
     image: '',
@@ -155,26 +161,126 @@ const NewProduct = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="-mx-1 mt-2 inline-block w-1/2 pl-1">
+                {/* <div className="-mx-1 mt-2 inline-block w-1/2 pl-1">
                   <label className=" text-sm text-gray-600" for="cus_email">
                     catégorie
-                  </label>
-                  <select
+                  </label> */}
+                {/* <select
                     name="categorie"
-                    className="mt-1 block w-full rounded-md border border-gray-300 bg-gray-200  py-2 px-3 text-gray-600 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="w-full rounded bg-gray-200 px-2 py-2 text-gray-700"
                     required
                     onChange={handleChange}
                   >
                     <option value="Homme" data-val="Homme">
                       Homme
                     </option>
-                    <option value="Femme" data-val="Femme">
+
+                    <option
+                      value="Femme"
+                      data-val="Femme"
+                      onClick={() => setShowList(true)}
+                    >
                       Femme
                     </option>
+
                     <option value="Enfant" data-val="Enfant">
                       Enfant
                     </option>
-                  </select>
+                  </select> */}
+                <div class="group -mt-9 ml-2 inline-block h-9">
+                  <div class="mx-auto max-w-md">
+                    <div class="relative">
+                      <div class="flex h-10 items-center rounded border border-gray-200 bg-gray-200">
+                        <input
+                          value="Categorie"
+                          name="select"
+                          class="w-full appearance-none bg-gray-200 px-4 text-gray-800 outline-none"
+                          checked
+                        />
+
+                        <button class="cursor-pointer text-gray-300 outline-none transition-all hover:text-gray-600 focus:outline-none">
+                          <svg
+                            class="mx-2 h-4 w-4 fill-current"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                          </svg>
+                        </button>
+                        <label
+                          for="show_more"
+                          class="cursor-pointer border-l border-gray-200 text-gray-300 outline-none transition-all hover:text-gray-600 focus:outline-none"
+                        >
+                          <svg
+                            class="h-4 w-4 transform  fill-current transition duration-150 ease-in-out group-hover:-rotate-180"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                          </svg>
+                        </label>
+                      </div>
+
+                      <input
+                        type="checkbox"
+                        name="show_more"
+                        id="show_more"
+                        class="peer hidden"
+                        checked
+                      />
+                      <div class="duration-250 absolute  mt-1 hidden w-full scale-0 transform flex-col overflow-hidden rounded border border-gray-200 bg-white shadow transition ease-in-out group-hover:scale-100 peer-checked:flex">
+                        <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                          <button
+                            onClick={() =>
+                              setShowListFemme(true) ||
+                              setShowListHomme(false) ||
+                              setShowListEnfant(false)
+                            }
+                          >
+                            Femme
+                          </button>
+                        </div>
+                        <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                          <button
+                            onClick={() =>
+                              setShowListHomme(true) ||
+                              setShowListFemme(false) ||
+                              setShowListEnfant(false)
+                            }
+                          >
+                            Homme
+                          </button>
+                        </div>
+                        <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
+                          <button
+                            onClick={() =>
+                              setShowListEnfant(true) ||
+                              setShowListHomme(false) ||
+                              setShowListFemme(false)
+                            }
+                          >
+                            Enfant
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* </div> */}
+
+                <div className="-mx-1 mt-2 inline-block w-1/2 pl-3">
+                  {showListFemme ? <ListFemme /> : null}
+                  {showListHomme ? <ListHomme /> : null}
+                  {showListEnfant ? <ListEnfant /> : null}
                 </div>
 
                 <div className="">

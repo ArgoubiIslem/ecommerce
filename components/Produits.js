@@ -96,7 +96,7 @@ function Produits() {
               class="peer hidden"
               checked
             />
-            <div class="absolute mt-1  hidden w-full scale-0 transform flex-col overflow-hidden rounded border border-gray-200 bg-white shadow transition duration-150 ease-in-out group-hover:scale-100 peer-checked:flex">
+            <div class="duration-250 absolute  mt-1 hidden w-full scale-0 transform flex-col overflow-hidden rounded border border-gray-200 bg-white shadow transition ease-in-out group-hover:scale-100 peer-checked:flex">
               <div class="block border-l-4 border-transparent p-2 hover:bg-gray-200 group-hover:border-blue-600">
                 <button onClick={() => filterResult('Femme')}>Femme</button>
               </div>
@@ -125,10 +125,10 @@ function Produits() {
           onClick={() =>
             !newProduct ? setNewProduct(true) : setNewProduct(false)
           }
-          className="bg-grey-light  hover:bg-grey text-grey-darkest inline-flex items-center rounded bg-green-200 py-2 px-4 font-bold"
+          className="flex transform rounded-md bg-blue-600 px-4 py-3 text-white shadow-lg outline-none transition-transform focus:ring-4 active:scale-y-75"
         >
           <svg
-            className="h-3 w-3 text-black"
+            className="h-6 w-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -142,16 +142,9 @@ function Produits() {
             <line x1="12" y1="5" x2="12" y2="19" />{' '}
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
-          <span>Créer produit</span>
+          <span className="ml-2">Créer produit</span>
         </button>
         {/* </Link> */}
-
-        <button
-          className="focus:shadow-outline ml-8 rounded bg-blue-500 py-2 px-4 font-bold text-white shadow hover:bg-blue-500 focus:outline-none  "
-          type="button"
-        >
-          Export
-        </button>
       </div>
 
       <script
@@ -203,7 +196,7 @@ function Produits() {
         {newProduct ? (
           <NewProduct />
         ) : (
-          <div className="flex w-full gap-6 ">
+          <div className="grid grid-cols-4 grid-rows-2 gap-2 overflow-hidden">
             {productsData
               ?.filter((product) => {
                 if (searchTerm == '') {
@@ -217,10 +210,10 @@ function Produits() {
               .map(function (product, i) {
                 console.log(productsData)
                 return (
-                  <div className="mt-10 w-full " key={product._id}>
-                    <div className=" mx-auto w-full max-w-sm overflow-hidden rounded-md shadow-md">
-                      <div className="grid-cols-4">
-                        <div className=" min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+                  <div className="mt-10 w-full" key={product._id}>
+                    <div className=" mx-auto  w-full max-w-sm grid-cols-4 gap-10 ">
+                      <div className="">
+                        <div className="min-h-80  aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                           <img
                             className="h-full w-full object-cover object-center lg:h-full lg:w-full "
                             src={product.image}
